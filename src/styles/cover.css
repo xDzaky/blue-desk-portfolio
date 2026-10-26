@@ -1,0 +1,266 @@
+/* src/styles/cover.css
+   Cover memakai "artboard" 16:9 (desktop) dan 9:15 (mobile). Semua posisi/ukuran dalam persen
+   artboard dan satuan cqw, jadi komposisi SELALU sama di semua lebar layar. */
+
+.cv-section {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-color: #a87b4e;
+  background-image:
+    repeating-linear-gradient(92deg, rgba(0, 0, 0, 0.1) 0 2px, transparent 2px 9px),
+    repeating-linear-gradient(88deg, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px 14px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.18));
+}
+
+.cv-artboard {
+  position: relative;
+  flex: none;
+  width: min(100%, calc(100svh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  container-type: inline-size;
+}
+
+@media (max-width: 639px) {
+  .cv-section { min-height: 0; align-items: start; }
+  .cv-artboard { width: 100%; aspect-ratio: 9 / 15; }
+}
+
+/* ---------- matras biru: sedikit miring, grid putus-putus ---------- */
+.cv-mat {
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  top: -8%;
+  bottom: 13%;
+  z-index: 0;
+  overflow: hidden;
+  transform: rotate(2deg);
+  background-color: #2a63e6;
+  background-image:
+    radial-gradient(ellipse at 42% 38%, rgba(255, 255, 255, 0.1), transparent 60%),
+    radial-gradient(ellipse at 90% 100%, rgba(0, 0, 40, 0.18), transparent 55%);
+  box-shadow: 0 0.5cqw 0 rgba(60, 35, 10, 0.35), 0 1.2cqw 2cqw rgba(0, 0, 0, 0.25);
+}
+.cv-mat::before,
+.cv-mat::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.cv-mat::before {
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.55) 0 0.16cqw, transparent 0.16cqw);
+  background-size: 8.4cqw 100%;
+  background-position: 3cqw 0;
+  -webkit-mask-image: repeating-linear-gradient(180deg, #000 0 0.7cqw, transparent 0.7cqw 1.2cqw);
+  mask-image: repeating-linear-gradient(180deg, #000 0 0.7cqw, transparent 0.7cqw 1.2cqw);
+}
+.cv-mat::after {
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.55) 0 0.16cqw, transparent 0.16cqw);
+  background-size: 100% 8.4cqw;
+  background-position: 0 2cqw;
+  -webkit-mask-image: repeating-linear-gradient(90deg, #000 0 0.7cqw, transparent 0.7cqw 1.2cqw);
+  mask-image: repeating-linear-gradient(90deg, #000 0 0.7cqw, transparent 0.7cqw 1.2cqw);
+}
+
+/* ---------- penempatan elemen (wide + tall lewat CSS variable) ---------- */
+.cv-spot {
+  position: absolute;
+  left: var(--l);
+  top: var(--t);
+  width: var(--w);
+  height: var(--h, auto);
+  transform: rotate(var(--r, 0deg));
+  z-index: var(--z, 20);
+  font-size: var(--fs, inherit);
+  pointer-events: none;
+}
+@media (max-width: 639px) {
+  .cv-spot {
+    left: var(--ml, var(--l));
+    top: var(--mt, var(--t));
+    width: var(--mw, var(--w));
+    height: var(--mh, var(--h, auto));
+    transform: rotate(var(--mr, var(--r, 0deg)));
+    font-size: var(--mfs, var(--fs, inherit));
+    display: var(--md, block);
+  }
+}
+.cv-in {
+  width: 100%;
+  height: 100%;
+  animation: cv-pop 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: var(--d, 0s);
+}
+@keyframes cv-pop {
+  from { opacity: 0; transform: translateY(1.6cqw) scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- kertas kusut berlubang spiral, tepi bawah sobek ---------- */
+.cv-paper-wrap {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0.5cqw 0 rgba(15, 42, 122, 0.28)) drop-shadow(0 1.1cqw 1.2cqw rgba(0, 0, 0, 0.22));
+  animation: cv-drop 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes cv-drop {
+  from { opacity: 0; transform: translateY(-3cqw) rotate(-1.5deg); }
+  to { opacity: 1; transform: none; }
+}
+.cv-paper {
+  width: 100%;
+  height: 100%;
+  background-color: #f3f2ee;
+  background-image:
+    linear-gradient(90deg, transparent 44%, rgba(0, 0, 0, 0.075) 45%, rgba(255, 255, 255, 0.6) 46.2%, transparent 48.5%),
+    linear-gradient(0deg, transparent 49%, rgba(0, 0, 0, 0.055) 50%, rgba(255, 255, 255, 0.45) 51.2%, transparent 53%),
+    radial-gradient(ellipse at 18% 30%, rgba(0, 0, 0, 0.04), transparent 42%),
+    radial-gradient(ellipse at 82% 72%, rgba(0, 0, 0, 0.05), transparent 46%),
+    radial-gradient(ellipse at 62% 14%, rgba(255, 255, 255, 0.75), transparent 42%);
+  -webkit-mask:
+    radial-gradient(circle at 50% 2cqw, transparent 0 1.15cqw, #000 1.2cqw) -0.6cqw 0 / 4.7cqw 4.2cqw repeat-x,
+    linear-gradient(#000, #000) 0 4.2cqw / 100% calc(100% - 4.2cqw) no-repeat;
+  mask:
+    radial-gradient(circle at 50% 2cqw, transparent 0 1.15cqw, #000 1.2cqw) -0.6cqw 0 / 4.7cqw 4.2cqw repeat-x,
+    linear-gradient(#000, #000) 0 4.2cqw / 100% calc(100% - 4.2cqw) no-repeat;
+}
+@media (max-width: 639px) {
+  .cv-paper {
+    -webkit-mask:
+      radial-gradient(circle at 50% 3.4cqw, transparent 0 2.1cqw, #000 2.15cqw) -1cqw 0 / 8.2cqw 7cqw repeat-x,
+      linear-gradient(#000, #000) 0 7cqw / 100% calc(100% - 7cqw) no-repeat;
+    mask:
+      radial-gradient(circle at 50% 3.4cqw, transparent 0 2.1cqw, #000 2.15cqw) -1cqw 0 / 8.2cqw 7cqw repeat-x,
+      linear-gradient(#000, #000) 0 7cqw / 100% calc(100% - 7cqw) no-repeat;
+  }
+}
+
+/* ---------- kotak seleksi + judul ---------- */
+.cv-title-box { position: relative; width: 100%; height: 100%; }
+.cv-select { position: absolute; inset: 0; border: max(1px, 0.1cqw) solid #7fb2ff; }
+.cv-handle {
+  position: absolute;
+  width: 1cqw;
+  height: 1cqw;
+  min-width: 6px;
+  min-height: 6px;
+  background: #fff;
+  border: max(1px, 0.1cqw) solid #6aa6ff;
+  transform: translate(-50%, -50%);
+}
+.cv-title-art {
+  position: absolute;
+  inset: 4% 5%;
+  display: grid;
+  place-items: center;
+  animation: cv-pixel-in 0.9s steps(14, end) 0.35s both;
+}
+.cv-title-art > svg { width: 100%; height: 100%; }
+@keyframes cv-pixel-in {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+/* ---------- teks dengan outline putih (tanpa -webkit-text-stroke) ---------- */
+.cv-outline {
+  --o: 0.3cqw;
+  font-family: var(--font-pixel, "Jersey 10", "Pixelify Sans", ui-monospace, monospace);
+  text-transform: uppercase;
+  line-height: 0.95;
+  white-space: nowrap;
+  text-shadow:
+    calc(var(--o) * -1) calc(var(--o) * -1) 0 #fff, 0 calc(var(--o) * -1) 0 #fff, var(--o) calc(var(--o) * -1) 0 #fff,
+    calc(var(--o) * -1) 0 0 #fff, var(--o) 0 0 #fff,
+    calc(var(--o) * -1) var(--o) 0 #fff, 0 var(--o) 0 #fff, var(--o) var(--o) 0 #fff,
+    calc(var(--o) * 1.5) calc(var(--o) * 1.5) 0 rgba(15, 42, 122, 0.35);
+}
+.cv-pink { color: #ff5aa5; }
+
+/* ---------- tag, nama, tombol kecil di atas kertas ---------- */
+.cv-tags {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35em 1.4em;
+  font-family: var(--font-mono, "Space Mono", ui-monospace, monospace);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(20, 33, 61, 0.78);
+  line-height: 1.25;
+}
+.cv-tags span { display: flex; align-items: center; gap: 0.6em; }
+.cv-tags i { flex: none; width: 0.55em; height: 0.55em; background: #2b62f0; }
+
+.cv-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.9em;
+  font-family: var(--font-mono, "Space Mono", ui-monospace, monospace);
+  color: #14213d;
+}
+@media (max-width: 639px) { .cv-meta { align-items: flex-start; } }
+.cv-name { font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; line-height: 1.3; }
+.cv-ctas { display: flex; gap: 0.7em; flex-wrap: wrap; }
+.cv-pill {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55em 1.3em;
+  border: 1.5px dashed #2b62f0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  color: #0f2a7a;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.15s, background 0.15s;
+}
+.cv-pill:hover { transform: translateY(-2px) rotate(-1.5deg); background: #ffc83d; border-style: solid; }
+.cv-pill:focus-visible { outline: 3px solid #0f2a7a; outline-offset: 3px; }
+
+/* ---------- interaksi dekor ---------- */
+.cv-btn {
+  pointer-events: auto;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.cv-btn:hover { transform: rotate(-4deg) scale(1.06); }
+.cv-btn:focus-visible { outline: 0.3cqw solid #fff; outline-offset: 0.3cqw; border-radius: 1.4cqw; }
+.cv-click { animation: cv-click 4s ease-in-out 1.6s infinite; transform-origin: 20% 10%; }
+@keyframes cv-click {
+  0%, 72%, 100% { transform: translate(0, 0) scale(1); }
+  80% { transform: translate(-0.5cqw, -0.6cqw) scale(0.92); }
+  88% { transform: translate(0, 0) scale(1); }
+}
+.cv-twinkle { animation: cv-twinkle 3s ease-in-out infinite; }
+@keyframes cv-twinkle { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.55; transform: scale(0.82); } }
+
+.cv-sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* override mobile (harus di bawah aturan dasar) */
+@media (max-width: 639px) {
+  .cv-tags { grid-template-columns: 1fr; gap: 0.3em; letter-spacing: 0.04em; }
+  .cv-name { white-space: normal; letter-spacing: 0.06em; }
+  .cv-meta { gap: 0.7em; }
+  .cv-pill { padding: 0.45em 0.9em; letter-spacing: 0.08em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-in, .cv-paper-wrap, .cv-title-art, .cv-click, .cv-twinkle { animation: none !important; }
+  .cv-pill, .cv-btn { transition: none; }
+}

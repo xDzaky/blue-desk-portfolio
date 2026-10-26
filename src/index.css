@@ -1,0 +1,218 @@
+@import "tailwindcss";
+@import "@fontsource/jersey-10";
+@import "@fontsource/pixelify-sans/600.css";
+@import "@fontsource/space-mono/400.css";
+@import "@fontsource/space-mono/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/gochi-hand";
+
+@theme {
+  --color-mat: #2f67e8;
+  --color-mat-deep: #2455c9;
+  --color-mat-line: #6f98f5;
+  --color-wood: #8a5b34;
+  --color-wood-dark: #5e3a1e;
+  --color-paper: #f4f0e4;
+  --color-paper-grid: #cfd8e8;
+  --color-ink: #14213d;
+  --color-navy: #0f2a7a;
+  --color-pixel: #2b62f0;
+  --color-pink: #ff5aa5;
+  --color-yellow: #ffc83d;
+  --color-yellow-deep: #e6a800;
+  --color-cream: #fff7d6;
+
+  --font-pixel: "Jersey 10", "Pixelify Sans", ui-monospace, monospace;
+  --font-pixel-alt: "Pixelify Sans", "Jersey 10", ui-monospace, monospace;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-hand: "Gochi Hand", "Comic Sans MS", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-mat-deep);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* 5.1 Matras biru bergrid + jahitan */
+.mat {
+  position: relative;
+  background-color: var(--color-mat);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.28) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 64px 64px, 64px 64px, 16px 16px, 16px 16px;
+}
+
+.mat::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  pointer-events: none;
+  border: 2px dashed rgba(255, 255, 255, 0.55);
+  border-radius: 18px;
+  z-index: 2;
+}
+
+/* 5.2 Kayu (strip dan bingkai), tanpa gambar */
+.wood {
+  background-color: var(--color-wood);
+  background-image:
+    repeating-linear-gradient(92deg, rgba(0, 0, 0, 0.1) 0 2px, transparent 2px 9px),
+    repeating-linear-gradient(88deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 13px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(0, 0, 0, 0.2));
+  box-shadow:
+    inset 0 -3px 0 rgba(0, 0, 0, 0.25),
+    inset 0 2px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* 5.3 Kertas kotak-kotak (grid paper) dan kertas polos */
+.paper {
+  background-color: var(--color-paper);
+}
+
+.paper-grid {
+  background-color: var(--color-paper);
+  background-image:
+    linear-gradient(var(--color-paper-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-paper-grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.paper-crease {
+  background-image:
+    linear-gradient(90deg, transparent 32%, rgba(0, 0, 0, 0.05) 33%, rgba(255, 255, 255, 0.35) 34%, transparent 36%),
+    linear-gradient(0deg, transparent 48%, rgba(0, 0, 0, 0.05) 49%, rgba(255, 255, 255, 0.3) 50%, transparent 52%);
+}
+
+/* 5.4 Lubang spiral di tepi atas & kiri (mask) */
+.holes-top {
+  -webkit-mask:
+    radial-gradient(circle at 50% 14px, transparent 0 6px, #000 6.5px) 0 0 / 36px 28px repeat-x,
+    linear-gradient(#000, #000) 0 28px / 100% calc(100% - 28px) no-repeat;
+  mask:
+    radial-gradient(circle at 50% 14px, transparent 0 6px, #000 6.5px) 0 0 / 36px 28px repeat-x,
+    linear-gradient(#000, #000) 0 28px / 100% calc(100% - 28px) no-repeat;
+}
+
+.holes-left {
+  -webkit-mask:
+    radial-gradient(circle at 14px 50%, transparent 0 6px, #000 6.5px) 0 0 / 28px 36px repeat-y,
+    linear-gradient(#000, #000) 28px 0 / calc(100% - 28px) 100% no-repeat;
+  mask:
+    radial-gradient(circle at 14px 50%, transparent 0 6px, #000 6.5px) 0 0 / 28px 36px repeat-y,
+    linear-gradient(#000, #000) 28px 0 / calc(100% - 28px) 100% no-repeat;
+}
+
+.paper-shadow {
+  filter: drop-shadow(0 6px 0 rgba(15, 42, 122, 0.35)) drop-shadow(0 14px 14px rgba(0, 0, 0, 0.18));
+}
+
+/* 5.6 Judul pixel dengan outline putih 8 arah */
+.pixel-title {
+  font-family: var(--font-pixel);
+  color: var(--color-pixel);
+  text-transform: uppercase;
+  line-height: 0.85;
+  letter-spacing: 0.02em;
+  --o: 3px;
+  text-shadow:
+    calc(var(--o) * -1) calc(var(--o) * -1) 0 #fff,
+    0 calc(var(--o) * -1) 0 #fff,
+    var(--o) calc(var(--o) * -1) 0 #fff,
+    calc(var(--o) * -1) 0 0 #fff,
+    var(--o) 0 0 #fff,
+    calc(var(--o) * -1) var(--o) 0 #fff,
+    0 var(--o) 0 #fff,
+    var(--o) var(--o) 0 #fff,
+    calc(var(--o) + 3px) calc(var(--o) + 4px) 0 var(--color-navy);
+}
+
+.pixel-title--pink {
+  color: var(--color-pink);
+  --o: 2px;
+}
+
+.pixel-title--gray {
+  color: #b9bfcc;
+  text-shadow: none;
+}
+
+@keyframes pixel-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.pixel-in {
+  animation: pixel-in 0.9s steps(12, end) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-in {
+    animation: none;
+  }
+}
+
+/* 5.11 Pill navigasi */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1.5px dashed var(--color-yellow);
+  border-radius: 999px;
+  padding: 7px 16px;
+  color: #fff;
+  background: rgba(15, 42, 122, 0.45);
+  font: 700 11px/1 var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.pill:hover {
+  transform: translateY(-2px) rotate(-1.5deg);
+  background: rgba(15, 42, 122, 0.7);
+}
+
+.pill:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.pill[aria-current="true"] {
+  background: var(--color-yellow);
+  color: var(--color-ink);
+  border-style: solid;
+}
+
+.pill--paper {
+  color: var(--color-ink);
+  background: transparent;
+  border-color: var(--color-pixel);
+}
+
+/* Folded sticky note effect */
+.folded-corner {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%);
+}
