@@ -5,7 +5,7 @@
 .cv-section {
   position: relative;
   width: 100%;
-  min-height: calc(100svh - var(--nav-h, 64px));
+  min-height: 100svh;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -19,13 +19,13 @@
 .cv-artboard {
   position: relative;
   flex: none;
-  width: min(100%, calc((100svh - var(--nav-h, 64px)) * 16 / 9));
+  width: min(100%, calc(100svh * 16 / 9));
   aspect-ratio: 16 / 9;
   container-type: inline-size;
 }
 
 @media (max-width: 639px) {
-  .cv-section { min-height: 0; align-items: start; }
+  .cv-section { min-height: 100svh; align-items: start; }
   .cv-artboard { width: 100%; aspect-ratio: 9 / 15; }
 }
 
@@ -34,8 +34,8 @@
   position: absolute;
   left: -50%;
   right: -50%;
-  top: -8%;
-  bottom: 13%;
+  top: -14%;
+  bottom: 8%;
   z-index: 0;
   overflow: hidden;
   transform: rotate(2deg);

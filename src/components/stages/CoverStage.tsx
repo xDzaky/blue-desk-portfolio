@@ -86,18 +86,18 @@ export function CoverStage() {
         </h1>
 
         {/* ============ DEKOR BELAKANG / TEPI (di atas matras, di bawah kertas) ============ */}
-        <Spot wide={{ l: "-0.5%", t: "0%", w: "11.5%" }} tall={{ l: "-4%", t: "-1%", w: "22%" }} z={5} delay={0.25}>
+        <Spot wide={{ l: "-0.5%", t: "9.5%", w: "11.5%" }} tall={{ l: "-4%", t: "7.5%", w: "22%" }} z={5} delay={0.25}>
           <div className="cv-in"><SetSquare /></div>
         </Spot>
 
-        <Spot wide={{ l: "82.7%", t: "5.6%", w: "20%", r: 40 }} tall={{ l: "76%", t: "3%", w: "40%", r: 40 }} z={5} delay={0.3}>
+        <Spot wide={{ l: "82.7%", t: "11%", w: "20%", r: 40 }} tall={{ l: "76%", t: "8.5%", w: "40%", r: 40 }} z={5} delay={0.3}>
           <div className="cv-in"><BlueRuler /></div>
         </Spot>
 
         {/* ============ KERTAS KUSUT BERLUBANG SPIRAL ============ */}
         <Spot
-          wide={{ l: "12.8%", t: "10.4%", w: "75.2%", h: "74.9%", r: -0.4 }}
-          tall={{ l: "5%", t: "15%", w: "90%", h: "67%", r: -0.4 }}
+          wide={{ l: "12.8%", t: "16.8%", w: "75.2%", h: "75%", r: -0.4 }}
+          tall={{ l: "5%", t: "16%", w: "90%", h: "68%", r: -0.4 }}
           z={10}
         >
           <div className="cv-paper-wrap">
@@ -107,8 +107,8 @@ export function CoverStage() {
 
         {/* ============ JUDUL: kotak seleksi + PORT/FOLIO ============ */}
         <Spot
-          wide={{ l: "29.1%", t: "27.1%", w: "44.1%", h: "43.4%" }}
-          tall={{ l: "10%", t: "24%", w: "80%", h: "27%" }}
+          wide={{ l: "29.1%", t: "33.5%", w: "44.1%", h: "43.4%" }}
+          tall={{ l: "10%", t: "25%", w: "80%", h: "27%" }}
           z={16}
         >
           <div className="cv-title-box">
@@ -122,8 +122,8 @@ export function CoverStage() {
 
         {/* 2026 pink miring */}
         <Spot
-          wide={{ l: "25.6%", t: "59.5%", w: "11%", r: -22, fs: "5.6cqw" }}
-          tall={{ l: "6%", t: "50%", w: "30%", r: -20, fs: "13cqw" }}
+          wide={{ l: "25.6%", t: "65.5%", w: "11%", r: -22, fs: "5.6cqw" }}
+          tall={{ l: "6%", t: "51%", w: "30%", r: -20, fs: "13cqw" }}
           z={18}
           delay={0.6}
         >
@@ -132,8 +132,8 @@ export function CoverStage() {
 
         {/* teks pink kanan atas judul (pengganti 作品集) */}
         <Spot
-          wide={{ l: "62.2%", t: "28%", w: "11%", r: 2, fs: "3.1cqw" }}
-          tall={{ l: "61%", t: "20.5%", w: "34%", r: 2, fs: "7.2cqw" }}
+          wide={{ l: "62.2%", t: "34.4%", w: "11%", r: 2, fs: "3.1cqw" }}
+          tall={{ l: "61%", t: "21.5%", w: "34%", r: 2, fs: "7.2cqw" }}
           z={18}
           delay={0.7}
         >
@@ -144,26 +144,26 @@ export function CoverStage() {
         </Spot>
 
         {/* doodle: panah melingkar biru, coretan pink, sparkle di atas kertas */}
-        <Spot wide={{ l: "57%", t: "20.5%", w: "4.6%", r: 4 }} tall={null} z={16} delay={0.8}>
+        <Spot wide={{ l: "57%", t: "26.9%", w: "4.6%", r: 4 }} tall={null} z={16} delay={0.8}>
           <div className="cv-in"><BlueSwirl /></div>
         </Spot>
-        <Spot wide={{ l: "11.2%", t: "27.6%", w: "4.4%", r: -8 }} tall={null} z={16} delay={0.8}>
+        <Spot wide={{ l: "11.2%", t: "34%", w: "4.4%", r: -8 }} tall={null} z={16} delay={0.8}>
           <div className="cv-in"><PinkDoodle /></div>
         </Spot>
-        <Spot wide={{ l: "14.8%", t: "24.6%", w: "1.9%" }} tall={null} z={16} delay={0.85}>
+        <Spot wide={{ l: "14.8%", t: "31%", w: "1.9%" }} tall={null} z={16} delay={0.85}>
           <div className="cv-in cv-twinkle"><Sparkle color="#2b62f0" /></div>
         </Spot>
-        <Spot wide={{ l: "76.9%", t: "21.9%", w: "3.3%" }} tall={{ l: "8%", t: "17.5%", w: "8%" }} z={22} delay={0.9}>
+        <Spot wide={{ l: "76.9%", t: "28.3%", w: "3.3%" }} tall={{ l: "8%", t: "18.5%", w: "8%" }} z={22} delay={0.9}>
           <div className="cv-in"><SparkleBadge color="#2b62f0" /></div>
         </Spot>
-        <Spot wide={{ l: "15.8%", t: "51.6%", w: "3.1%" }} tall={{ l: "4%", t: "45%", w: "8%" }} z={22} delay={0.95}>
+        <Spot wide={{ l: "15.8%", t: "58%", w: "3.1%" }} tall={{ l: "4%", t: "46%", w: "8%" }} z={22} delay={0.95}>
           <div className="cv-in"><SparkleBadge color="#ff5aa5" /></div>
         </Spot>
 
         {/* ============ TAG KIRI BAWAH, NAMA, TOMBOL ============ */}
         <Spot
-          wide={{ l: "15.2%", t: "78.4%", w: "27%", fs: "max(0.78cqw, 8px)" }}
-          tall={{ l: "10%", t: "58.5%", w: "52%", fs: "max(2.7cqw, 10px)" }}
+          wide={{ l: "15.2%", t: "84.8%", w: "27%", fs: "max(0.78cqw, 8px)" }}
+          tall={{ l: "10%", t: "59.5%", w: "52%", fs: "max(2.7cqw, 10px)" }}
           z={16}
           delay={1}
         >
@@ -176,8 +176,8 @@ export function CoverStage() {
         </Spot>
 
         <Spot
-          wide={{ l: "58.5%", t: "77.3%", w: "29%", fs: "max(0.8cqw, 10px)" }}
-          tall={{ l: "10%", t: "68.6%", w: "56%", fs: "max(2.7cqw, 10px)" }}
+          wide={{ l: "58.5%", t: "83.7%", w: "29%", fs: "max(0.8cqw, 10px)" }}
+          tall={{ l: "10%", t: "69.5%", w: "56%", fs: "max(2.7cqw, 10px)" }}
           z={17}
           delay={1.05}
         >
@@ -188,17 +188,17 @@ export function CoverStage() {
 
         {/* ============ DEKOR 3D DI ATAS KERTAS ============ */}
         {/* Folder kuning terbuka (kiri judul) */}
-        <Spot wide={{ l: "14%", t: "22.8%", w: "16.6%", r: -20 }} tall={{ l: "-7%", t: "81.5%", w: "26%", r: -20 }} z={22} delay={0.45}>
+        <Spot wide={{ l: "14%", t: "29.2%", w: "16.6%", r: -20 }} tall={{ l: "-7%", t: "82.5%", w: "26%", r: -20 }} z={22} delay={0.45}>
           <div className="cv-in"><FolderOpen /></div>
         </Spot>
 
         {/* Pensil diagonal (kiri bawah) */}
-        <Spot wide={{ l: "2.1%", t: "68.5%", w: "19%", r: -46 }} tall={{ l: "24%", t: "85%", w: "42%", r: -10 }} z={22} delay={0.5}>
+        <Spot wide={{ l: "2.1%", t: "73%", w: "19%", r: -46 }} tall={{ l: "24%", t: "86%", w: "42%", r: -10 }} z={22} delay={0.5}>
           <div className="cv-in"><Pencil /></div>
         </Spot>
 
         {/* Clipboard NOTE (klik = catatan cepat) */}
-        <Spot wide={{ l: "78.5%", t: "26.7%", w: "11.8%", r: -14 }} tall={{ l: "73%", t: "53.5%", w: "22%", r: -14 }} z={24} delay={0.55}>
+        <Spot wide={{ l: "78.5%", t: "33.1%", w: "11.8%", r: -14 }} tall={{ l: "73%", t: "54.5%", w: "22%", r: -14 }} z={24} delay={0.55}>
           <div className="cv-in">
             <button type="button" className="cv-btn" onClick={() => setQuickNoteOpen(true)} title="Klik untuk menulis catatan cepat">
               <Clipboard />
@@ -208,27 +208,27 @@ export function CoverStage() {
         </Spot>
 
         {/* Gunting biru */}
-        <Spot wide={{ l: "71.9%", t: "57.7%", w: "10.5%", r: 6 }} tall={{ l: "64%", t: "77%", w: "22%", r: 6 }} z={24} delay={0.6}>
+        <Spot wide={{ l: "71.9%", t: "64.1%", w: "10.5%", r: 6 }} tall={{ l: "64%", t: "78%", w: "22%", r: 6 }} z={24} delay={0.6}>
           <div className="cv-in"><Scissors /></div>
         </Spot>
 
         {/* Kursor panah kuning */}
-        <Spot wide={{ l: "60.6%", t: "66.2%", w: "5.4%", r: -14 }} tall={{ l: "55%", t: "51.5%", w: "11%", r: -14 }} z={26} delay={0.7}>
+        <Spot wide={{ l: "60.6%", t: "72.6%", w: "5.4%", r: -14 }} tall={{ l: "55%", t: "52.5%", w: "11%", r: -14 }} z={26} delay={0.7}>
           <div className="cv-in cv-click"><CursorArrow /></div>
         </Spot>
 
         {/* Jangka (pojok kanan bawah, terpotong tepi) */}
-        <Spot wide={{ l: "88.1%", t: "71.6%", w: "11.3%", r: -10 }} tall={null} z={26} delay={0.75}>
+        <Spot wide={{ l: "88.1%", t: "76%", w: "11.3%", r: -10 }} tall={null} z={26} delay={0.75}>
           <div className="cv-in"><Compass /></div>
         </Spot>
 
         {/* Keyboard (atas, menimpa tepi kertas) */}
-        <Spot wide={{ l: "29.2%", t: "-7%", w: "34%", r: 2.5 }} tall={{ l: "17%", t: "-2%", w: "66%", r: 2.5 }} z={30} delay={0.2}>
+        <Spot wide={{ l: "29.2%", t: "10.5%", w: "34%", r: 2.5 }} tall={{ l: "17%", t: "8.5%", w: "66%", r: 2.5 }} z={30} delay={0.2}>
           <div className="cv-in"><Keyboard /></div>
         </Spot>
 
         {/* Binder clip pink di tepi atas kertas */}
-        <Spot wide={{ l: "68%", t: "3.9%", w: "8%", r: 2 }} tall={{ l: "66%", t: "8.5%", w: "14%", r: 2 }} z={32} delay={0.35}>
+        <Spot wide={{ l: "68%", t: "11%", w: "8%", r: 2 }} tall={{ l: "66%", t: "11.5%", w: "14%", r: 2 }} z={32} delay={0.35}>
           <div className="cv-in"><BinderClip /></div>
         </Spot>
       </div>

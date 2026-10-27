@@ -26,14 +26,14 @@
 }
 @media (min-width: 1100px) { :root { --nav-h: 64px; } }
 
-html { scroll-padding-top: var(--nav-h); }
-section[id] { scroll-margin-top: var(--nav-h); }
+html { scroll-padding-top: calc(var(--nav-h) + 16px); }
+section[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
 .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 body.sx-lock { overflow: hidden; }
 
 .sx-app { min-height: 100vh; display: flex; flex-direction: column; background: var(--sx-mat-deep); color: var(--sx-ink); }
-.sx-main { flex: 1; padding-top: var(--nav-h); }
+.sx-main { flex: 1; padding-top: 0; }
 
 :where(a, button, input, textarea, summary):focus-visible { outline: 3px solid var(--sx-yellow); outline-offset: 2px; }
 
