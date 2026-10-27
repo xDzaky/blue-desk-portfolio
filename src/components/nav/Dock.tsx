@@ -56,50 +56,77 @@ export function Dock() {
 
   return (
     <>
-      <nav aria-label="Navigasi utama" className="sx-nav sx-wood">
-        <Link to={{ pathname: "/", hash: "#home" }} className="sx-brand" aria-label={`${profile.shortName} - ke atas`}>
-          <span className="sx-brand__face" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="20" height="20">
-              <circle cx="8.5" cy="10" r="1.7" fill="#fff" />
-              <circle cx="15.5" cy="10" r="1.7" fill="#fff" />
-              <path d="M7 14.5 C9 18, 15 18, 17 14.5" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          </span>
-          <span className="sx-brand__name">{profile.shortName}</span>
-          <span className="sx-brand__tape" aria-hidden="true">
-            <span className="sx-brand__tape-pin" />
-            <span className="sx-brand__tape-text">{profile.role}</span>
-          </span>
-        </Link>
+      <header className="sx-nav-wrap">
+        <nav aria-label="Navigasi utama" className="sx-nav sx-nav--stationery">
+          {/* Ornamen skala penggaris arsitek / cutting mat di tepi atas */}
+          <div className="sx-nav__ruler" aria-hidden="true">
+            {Array.from({ length: 48 }).map((_, i) => (
+              <span key={i} className={`sx-ruler-tick ${i % 5 === 0 ? "sx-ruler-tick--lg" : ""}`} />
+            ))}
+          </div>
 
-        <div className="sx-nav__links">
-          {NAV_ITEMS.map((item) => (
-            <Link key={item.id} to={{ pathname: "/", hash: `#${item.id}` }} className="sx-pill" aria-current={current === item.id ? "true" : undefined}>
-              {item.label}
+          {/* Brand Kiri: Sticker Smiley + Pixel Name + Washi Tape Role */}
+          <Link to={{ pathname: "/", hash: "#home" }} className="sx-brand" aria-label={`${profile.shortName} - ke atas`}>
+            <span className="sx-brand__face" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20">
+                <circle cx="8.5" cy="10" r="1.7" fill="#fff" />
+                <circle cx="15.5" cy="10" r="1.7" fill="#fff" />
+                <path d="M7 14.5 C9 18, 15 18, 17 14.5" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </span>
+            <span className="sx-brand__name">{profile.shortName}</span>
+            <span className="sx-brand__tape" aria-hidden="true">
+              <span className="sx-brand__tape-dot" />
+              <span className="sx-brand__tape-text">{profile.role}</span>
+            </span>
+          </Link>
+
+          {/* Navigasi Tengah: Index Tab Memo Kertas Bergaris */}
+          <div className="sx-nav__links">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.id}
+                to={{ pathname: "/", hash: `#${item.id}` }}
+                className="sx-tab"
+                aria-current={current === item.id ? "true" : undefined}
+              >
+                <span className="sx-tab__label">{item.label}</span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Sisi Kanan: Stempel Domain & Tombol Kontak Stiker */}
+          <div className="sx-nav__right">
+            <Link to={{ pathname: "/", hash: "#home" }} className="sx-nav__domain">
+              <span className="sx-domain-dot" />
+              {profile.domain}
             </Link>
-          ))}
-        </div>
+            <a href="#contact" className="sx-nav__cta" title="Kirim Pesan / Kontak Dzaki">
+              <span>Diskusi</span>
+              <svg viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5" aria-hidden="true">
+                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+              </svg>
+            </a>
+          </div>
 
-        <Link to={{ pathname: "/", hash: "#home" }} className="sx-nav__domain">
-          {profile.domain}
-        </Link>
-
-        <button
-          ref={burgerRef}
-          type="button"
-          className="sx-burger"
-          aria-expanded={open}
-          aria-controls="sx-drawer"
-          aria-label={open ? "Tutup menu" : "Buka menu"}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="sx-burger__bars" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </span>
-        </button>
-      </nav>
+          {/* Hamburger Mobile: Tombol Sticky Note Kuning */}
+          <button
+            ref={burgerRef}
+            type="button"
+            className="sx-burger"
+            aria-expanded={open}
+            aria-controls="sx-drawer"
+            aria-label={open ? "Tutup menu" : "Buka menu"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="sx-burger__bars" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+            </span>
+          </button>
+        </nav>
+      </header>
 
       <div className="sx-backdrop" data-open={open} onClick={() => close()} aria-hidden="true" />
       <div id="sx-drawer" ref={drawerRef} className="sx-drawer" data-open={open} aria-hidden={!open}>
