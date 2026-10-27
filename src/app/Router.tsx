@@ -13,10 +13,8 @@ const NotFoundPage = lazy(() =>
 
 function PageLoader() {
   return (
-    <div className="mat min-h-screen flex items-center justify-center p-4">
-      <div className="paper paper-grid p-6 rounded-xl border border-ink/20 shadow-lg text-center font-mono text-xs font-bold text-navy uppercase tracking-widest animate-pulse">
-        MEMBUKA BUKU CATATAN...
-      </div>
+    <div className="sx-stage sx-center">
+      <div className="sx-paper sx-paper--grid sx-loader">Membuka buku catatan...</div>
     </div>
   );
 }

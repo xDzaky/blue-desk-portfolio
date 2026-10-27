@@ -5,7 +5,7 @@
 .cv-section {
   position: relative;
   width: 100%;
-  min-height: 100svh;
+  min-height: calc(100svh - var(--nav-h, 64px));
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -19,7 +19,7 @@
 .cv-artboard {
   position: relative;
   flex: none;
-  width: min(100%, calc(100svh * 16 / 9));
+  width: min(100%, calc((100svh - var(--nav-h, 64px)) * 16 / 9));
   aspect-ratio: 16 / 9;
   container-type: inline-size;
 }

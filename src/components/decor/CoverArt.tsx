@@ -172,19 +172,31 @@ export function Scissors() {
     <svg viewBox="0 0 140 150" style={base} {...a11y}>
       <defs>
         <linearGradient id="scBlade" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#eef1f6" />
-          <stop offset="1" stopColor="#9aa4b4" />
+          <stop offset="0" stopColor="#f4f6fa" />
+          <stop offset="1" stopColor="#98a2b3" />
+        </linearGradient>
+        <linearGradient id="scHandle" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#5b95f7" />
+          <stop offset="1" stopColor="#2058d6" />
         </linearGradient>
       </defs>
-      <path d="M74 54 L97 66 L10 120 L5 111 Z" fill="url(#scBlade)" stroke="#8e98a8" strokeWidth="1.2" strokeLinejoin="round" />
-      <path d="M66 64 L90 80 L22 147 L14 140 Z" fill="url(#scBlade)" stroke="#8e98a8" strokeWidth="1.2" strokeLinejoin="round" />
-      <path d="M86 66 L106 44" stroke="#2468dc" strokeWidth="10" strokeLinecap="round" />
-      <path d="M86 72 L112 82" stroke="#2468dc" strokeWidth="10" strokeLinecap="round" />
-      <circle cx="106" cy="28" r="21" fill="none" stroke="#2f72e6" strokeWidth="10" />
-      <circle cx="106" cy="28" r="21" fill="none" stroke="#6fa2f4" strokeWidth="3" strokeDasharray="30 100" strokeLinecap="round" />
-      <circle cx="124" cy="78" r="17" fill="none" stroke="#2f72e6" strokeWidth="10" />
-      <circle cx="124" cy="78" r="17" fill="none" stroke="#6fa2f4" strokeWidth="3" strokeDasharray="22 100" strokeLinecap="round" />
-      <circle cx="82" cy="68" r="6.5" fill="#cdd3de" stroke="#8e98a8" />
+      {/* bilah belakang (setengah B) */}
+      <path d="M66 74 L80 64 L6 94 L4 101 Z" fill="url(#scBlade)" stroke="#8791a3" strokeWidth="1.4" strokeLinejoin="round" />
+      {/* bilah depan (setengah A) */}
+      <path d="M66 64 L82 78 L18 144 L8 138 Z" fill="url(#scBlade)" stroke="#8791a3" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M70 70 L16 136" stroke="#fff" strokeOpacity=".7" strokeWidth="2" strokeLinecap="round" />
+      {/* lengan + cincin pegangan */}
+      <path d="M100 46 L76 72" stroke="url(#scHandle)" strokeWidth="11" strokeLinecap="round" />
+      <path d="M112 84 L78 74" stroke="url(#scHandle)" strokeWidth="11" strokeLinecap="round" />
+      <circle cx="106" cy="30" r="20" fill="none" stroke="#1d4fc4" strokeWidth="13" />
+      <circle cx="106" cy="30" r="20" fill="none" stroke="url(#scHandle)" strokeWidth="9" />
+      <circle cx="106" cy="30" r="20" fill="none" stroke="#9cc0ff" strokeWidth="2.6" strokeDasharray="26 100" strokeLinecap="round" />
+      <circle cx="124" cy="86" r="17" fill="none" stroke="#1d4fc4" strokeWidth="13" />
+      <circle cx="124" cy="86" r="17" fill="none" stroke="url(#scHandle)" strokeWidth="9" />
+      <circle cx="124" cy="86" r="17" fill="none" stroke="#9cc0ff" strokeWidth="2.6" strokeDasharray="22 100" strokeLinecap="round" />
+      {/* baut engsel */}
+      <circle cx="74" cy="72" r="7" fill="#d5dae4" stroke="#7c8699" strokeWidth="1.6" />
+      <circle cx="72.5" cy="70.5" r="2" fill="#fff" />
     </svg>
   );
 }

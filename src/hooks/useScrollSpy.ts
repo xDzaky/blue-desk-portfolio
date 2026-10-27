@@ -1,31 +1,33 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export function useScrollSpy(ids: string[], offset: number = 200) {
-  const [activeId, setActiveId] = useState<string>(ids[0] || "");
+/** Menandai section yang sedang terlihat. Hanya aktif jika `enabled` (halaman Home). */
+export function useScrollSpy(ids: string[], enabled = true, offset = 140) {
+  const [activeId, setActiveId] = useState<string>(ids[0] ?? "");
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + offset;
-
-      for (let i = ids.length - 1; i >= 0; i--) {
-        const id = ids[i];
+    if (!enabled) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      let current = ids[0] ?? "";
+      for (const id of ids) {
         const el = document.getElementById(id);
-        if (el) {
-          const top = el.offsetTop;
-          if (scrollPos >= top) {
-            setActiveId(id);
-            return;
-          }
-        }
+        if (el && el.getBoundingClientRect().top <= offset) current = id;
       }
-      setActiveId(ids[0] || "");
+      setActiveId(current);
     };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [ids, offset]);
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [ids, enabled, offset]);
 
   return activeId;
 }
