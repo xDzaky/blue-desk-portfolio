@@ -66,9 +66,9 @@ export function Dock() {
             </svg>
           </span>
           <span className="sx-brand__name">{profile.shortName}</span>
-          <span className="sx-brand__role">
-            <i className="sx-brand__dot" aria-hidden="true" />
-            {profile.role}
+          <span className="sx-brand__tape" aria-hidden="true">
+            <span className="sx-brand__tape-pin" />
+            <span className="sx-brand__tape-text">{profile.role}</span>
           </span>
         </Link>
 

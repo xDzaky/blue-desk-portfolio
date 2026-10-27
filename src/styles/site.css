@@ -58,11 +58,45 @@ body.sx-lock { overflow: hidden; }
 .sx-brand { display: inline-flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; min-width: 0; }
 .sx-brand__face { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--sx-pink); border: 2px solid #fff; display: grid; place-items: center; box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3); }
 .sx-brand__name { font: 700 13px var(--sx-mono); letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
-.sx-brand__role { display: none; font: 700 10px var(--sx-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--sx-yellow); white-space: nowrap; }
-@media (min-width: 1320px) {
-  .sx-brand__role { display: inline-flex; align-items: center; gap: 6px; margin-left: 4px; padding: 6px 12px; border: 2px solid var(--sx-yellow); border-radius: 999px; background: rgba(15, 42, 122, 0.8); }
+.sx-brand__tape {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+  padding: 3px 14px 4px 14px;
+  background: #fef08a; /* Washi tape kuning lembut tema meja belajar */
+  color: #0f2a7a;
+  font: 700 10.5px var(--sx-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: rotate(-1.8deg);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+  /* Ujung bergerigi potongan selotip kertas (washi tape dispenser) */
+  clip-path: polygon(
+    0% 0%, 100% 0%,
+    97% 20%, 100% 40%, 97% 60%, 100% 80%, 97% 100%,
+    0% 100%,
+    3% 80%, 0% 60%, 3% 40%, 0% 20%
+  );
+  user-select: none;
+  pointer-events: none;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.sx-brand__dot { width: 8px; height: 8px; border-radius: 50%; background: #34d399; }
+.sx-brand:hover .sx-brand__tape {
+  transform: rotate(0deg) scale(1.04);
+}
+.sx-brand__tape-pin {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #0f2a7a;
+  opacity: 0.65;
+  flex: none;
+}
+@media (min-width: 1220px) {
+  .sx-brand__tape { display: inline-flex; }
+}
 
 .sx-nav__links { display: none; align-items: center; gap: 6px; }
 .sx-nav__domain { display: none; font: 400 12px var(--sx-mono); letter-spacing: 0.14em; color: rgba(255, 255, 255, 0.9); text-decoration: none; }
