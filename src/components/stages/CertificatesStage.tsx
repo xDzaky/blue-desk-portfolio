@@ -18,16 +18,27 @@ export function CertificatesStage() {
       <div className="sx-deco sx-hide-sm" style={{ left: "5%", top: 50, width: 30 }}><SparkleBadge color="#ff5aa5" /></div>
 
       <div className="sx-wrap">
-        <StageHead
-          eyebrow="VERIFIED CREDENTIALS"
-          title="Sertifikat"
-          lead="Klik tiket sertifikat untuk membuka pratinjau bukti digital."
-          deco={<div style={{ width: 64, transform: "rotate(12deg)" }}><Paperclip /></div>}
-        />
+        <div data-aos="fade-down" data-aos-duration="700">
+          <StageHead
+            eyebrow="VERIFIED CREDENTIALS"
+            title="Sertifikat"
+            lead="Klik tiket sertifikat untuk membuka pratinjau bukti digital."
+            deco={<div style={{ width: 64, transform: "rotate(12deg)" }}><Paperclip /></div>}
+          />
+        </div>
 
         <div className="sx-tickets">
           {certificates.map((c, i) => (
-            <button key={c.id} type="button" className="sx-ticket" onClick={() => setSelected(c)} style={vars({ "--rot": `${ROT[i % ROT.length]}deg` })} aria-haspopup="dialog">
+            <button
+              key={c.id}
+              type="button"
+              data-aos="zoom-in-up"
+              data-aos-delay={i * 90 + 60}
+              className="sx-ticket"
+              onClick={() => setSelected(c)}
+              style={vars({ "--rot": `${ROT[i % ROT.length]}deg` })}
+              aria-haspopup="dialog"
+            >
               <span className="sx-ticket__body" style={{ display: "flex" }}>
                 <span className="sx-ticket__top"><span>NO. {String(i + 1).padStart(2, "0")}</span><span>{c.year}</span></span>
                 <span className="sx-ticket__title" style={{ display: "block" }}>{c.title}</span>

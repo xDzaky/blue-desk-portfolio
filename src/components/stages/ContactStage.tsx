@@ -13,7 +13,7 @@ export function ContactStage({ onOpenCredits: _ }: { onOpenCredits?: () => void 
       <div className="sx-deco sx-hide-sm" style={{ left: "5%", top: 50, width: 30 }}><SparkleBadge color="#ff5aa5" /></div>
 
       <div className="sx-wrap">
-        <header className="sx-head">
+        <header data-aos="fade-down" data-aos-duration="700" className="sx-head">
           <div className="sx-head__text">
             <p className="sx-eyebrow">★ INBOX &amp; COLLABORATION</p>
             <h2 id="contact-title" className="sx-title" style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
@@ -28,9 +28,11 @@ export function ContactStage({ onOpenCredits: _ }: { onOpenCredits?: () => void 
         </header>
 
         <div className="sx-contact">
-          <ContactForm />
+          <div data-aos="fade-right" data-aos-delay="100">
+            <ContactForm />
+          </div>
 
-          <div className="sx-side">
+          <div data-aos="fade-left" data-aos-delay="200" className="sx-side">
             <QrNote url={`https://wa.me/${profile.whatsapp.replace(/[^0-9]/g, "")}`} label="Scan untuk WhatsApp" />
 
             <div className="sx-social">

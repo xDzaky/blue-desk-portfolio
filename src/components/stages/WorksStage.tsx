@@ -23,7 +23,7 @@ export function WorksStage() {
       <div className="sx-deco sx-hide-sm" style={{ left: "30%", bottom: 50, width: 20 }}><Sparkle color="#2b62f0" /></div>
 
       <div className="sx-wrap" style={{ maxWidth: 1200 }}>
-        <header className="sx-head">
+        <header data-aos="fade-down" data-aos-duration="700" className="sx-head">
           <div className="sx-head__text">
             <p className="sx-eyebrow">★ SELECTED WORKS</p>
             <h2 id="works-title" className="sx-title">Contents<Chevrons /></h2>

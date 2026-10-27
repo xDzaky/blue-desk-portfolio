@@ -12,6 +12,8 @@ export function WorkCard({ index, slug, title, subtitle, thumb }: { index: numbe
       to={`/works/${slug}`}
       aria-label={`Lihat project ${title}`}
       className="sx-card"
+      data-aos="fade-up"
+      data-aos-delay={index * 120 + 80}
       style={vars({ "--rot": `${seededRotation(slug, 4)}deg`, "--lift": LIFTS[index % 4] })}
     >
       <span className="sx-card__clip"><BinderClip /></span>

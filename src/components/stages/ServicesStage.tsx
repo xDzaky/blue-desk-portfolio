@@ -12,21 +12,29 @@ export function ServicesStage() {
       <div className="sx-deco sx-hide-sm" style={{ right: "6%", bottom: 50, width: 30 }}><SparkleBadge color="#2b62f0" /></div>
 
       <div className="sx-wrap">
-        <StageHead
-          eyebrow="WORK WITH ME"
-          title="Layanan"
-          lead="Solusi website profesional, cepat, dan siap pakai untuk kebutuhan bisnismu."
-          deco={
-            <div style={{ display: "flex", alignItems: "flex-end", gap: 6 }}>
-              <div style={{ width: 120, transform: "rotate(-20deg) translateY(14px)" }}><Pencil /></div>
-              <div style={{ width: 150, transform: "rotate(-6deg)" }}><BlueRuler /></div>
-            </div>
-          }
-        />
+        <div data-aos="fade-down" data-aos-duration="700">
+          <StageHead
+            eyebrow="WORK WITH ME"
+            title="Layanan"
+            lead="Solusi website profesional, cepat, dan siap pakai untuk kebutuhan bisnismu."
+            deco={
+              <div style={{ display: "flex", alignItems: "flex-end", gap: 6 }}>
+                <div style={{ width: 120, transform: "rotate(-20deg) translateY(14px)" }}><Pencil /></div>
+                <div style={{ width: 150, transform: "rotate(-6deg)" }}><BlueRuler /></div>
+              </div>
+            }
+          />
+        </div>
 
         <div className="sx-plans">
           {services.map((s, i) => (
-            <article key={s.name} className="sx-plan" style={vars({ "--rot": `${[-1.2, 0.8, 1.4][i % 3]}deg` })}>
+            <article
+              key={s.name}
+              data-aos="fade-up"
+              data-aos-delay={i * 140 + 80}
+              className="sx-plan"
+              style={vars({ "--rot": `${[-1.2, 0.8, 1.4][i % 3]}deg` })}
+            >
               <Tape />
               {s.popular && <span className="sx-plan__flag">Paling diminati</span>}
               <div className="sx-plan__sheet">

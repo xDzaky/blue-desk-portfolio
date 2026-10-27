@@ -18,22 +18,30 @@ export function SkillsStage() {
       <div className="sx-deco sx-hide-sm" style={{ left: "42%", top: 40, width: 20 }}><Sparkle color="#ffc83d" /></div>
 
       <div className="sx-wrap">
-        <StageHead
-          eyebrow="DEVELOPER GEAR"
-          title="Toolbox"
-          deco={
-            <div style={{ display: "flex", alignItems: "flex-end", gap: 8 }}>
-              <div style={{ width: 84, transform: "rotate(-8deg)" }}><Bulb /></div>
-              <div style={{ width: 170, transform: "rotate(5deg)" }}><Laptop /></div>
-            </div>
-          }
-        />
+        <div data-aos="fade-down" data-aos-duration="700">
+          <StageHead
+            eyebrow="DEVELOPER GEAR"
+            title="Toolbox"
+            deco={
+              <div style={{ display: "flex", alignItems: "flex-end", gap: 8 }}>
+                <div style={{ width: 84, transform: "rotate(-8deg)" }}><Bulb /></div>
+                <div style={{ width: 170, transform: "rotate(5deg)" }}><Laptop /></div>
+              </div>
+            }
+          />
+        </div>
 
         <div className="sx-groups">
           {GROUPS.map((group, idx) => {
             const items = skills.filter((s) => s.group === group);
             return (
-              <article key={group} className="sx-group sx-paper" style={vars({ "--rot": `${seededRotation(group, 1.6)}deg` })}>
+              <article
+                key={group}
+                data-aos="fade-up"
+                data-aos-delay={idx * 120 + 80}
+                className="sx-group sx-paper"
+                style={vars({ "--rot": `${seededRotation(group, 1.6)}deg` })}
+              >
                 <span className="sx-group__pin"><Pushpin color={PIN_COLORS[idx]} /></span>
                 <h3 className="sx-group__head">
                   <span>{group}</span>
@@ -60,7 +68,7 @@ export function SkillsStage() {
           })}
         </div>
 
-        <div className="sx-strip sx-paper">
+        <div data-aos="fade-up" data-aos-delay="200" className="sx-strip sx-paper">
           <span className="sx-strip__label">⚡ Currently exploring:</span>
           <div className="sx-tags">
             {learningTopics.map((t, i) => (
@@ -74,7 +82,13 @@ export function SkillsStage() {
 
         <div className="sx-stats" style={{ position: "relative" }}>
           {stats.map((s, i) => (
-            <div key={s.label} className="sx-stat" style={vars({ "--rot": `${[-2, 1.5, -1][i % 3]}deg` })}>
+            <div
+              key={s.label}
+              data-aos="flip-up"
+              data-aos-delay={i * 120 + 100}
+              className="sx-stat"
+              style={vars({ "--rot": `${[-2, 1.5, -1][i % 3]}deg` })}
+            >
               <b>{s.value}</b>
               <span>{s.label}</span>
             </div>

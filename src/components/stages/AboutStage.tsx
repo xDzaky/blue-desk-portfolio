@@ -28,7 +28,11 @@ export function AboutStage() {
       className="mat relative min-h-screen w-full flex items-center justify-center py-20 px-3 sm:px-6 overflow-hidden"
     >
       {/* 3D Folder peeking behind the wooden board top right (matching Sample Image 2) */}
-      <div className="absolute top-8 right-6 sm:right-16 z-[5] pointer-events-none">
+      <div
+        data-aos="zoom-in"
+        data-aos-delay="200"
+        className="absolute top-8 right-6 sm:right-16 z-[5] pointer-events-none"
+      >
         <Sticker3D
           name="folder"
           size={180}
@@ -41,6 +45,8 @@ export function AboutStage() {
       {/* Hand-drawn curved arrow doodle near top left of board */}
       <div
         aria-hidden="true"
+        data-aos="fade-down"
+        data-aos-delay="250"
         className="hidden md:block absolute top-16 left-16 z-20 pointer-events-none text-white/90"
       >
         <svg viewBox="0 0 70 70" className="w-14 h-14 stroke-current fill-none stroke-[2.5] stroke-linecap-round stroke-linejoin-round">
@@ -63,7 +69,11 @@ export function AboutStage() {
       />
 
       {/* Main Wood Board Frame with rounded corners (Clipboard tray) */}
-      <div className="relative z-10 w-full max-w-[1140px] wood rounded-[32px] p-3 sm:p-6 shadow-[0_20px_40px_rgba(0,0,0,0.4)] border-4 border-wood-dark">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="800"
+        className="relative z-10 w-full max-w-[1140px] wood rounded-[32px] p-3 sm:p-6 shadow-[0_20px_40px_rgba(0,0,0,0.4)] border-4 border-wood-dark"
+      >
         {/* Inside Spiral Notebook Grid Page with top holes and torn bottom */}
         <div
           style={{ clipPath: tornBottom("about-board-paper", 42, 2.6) }}
@@ -72,7 +82,11 @@ export function AboutStage() {
           {/* Main Content Layout: Left ID Card & Right Columns */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
             {/* ===== LEFT COLUMN: LANYARD & ID CARD ===== */}
-            <div className="lg:col-span-4 flex justify-center -mt-8 sm:-mt-12 mb-24 lg:mb-24">
+            <div
+              data-aos="fade-right"
+              data-aos-delay="200"
+              className="lg:col-span-4 flex justify-center -mt-8 sm:-mt-12 mb-24 lg:mb-24"
+            >
               <IdCard
                 photo={profile.photo}
                 name={profile.name}
@@ -87,7 +101,7 @@ export function AboutStage() {
             {/* ===== RIGHT COLUMN: ABOUT ME HEADER & TWO SUB-COLUMNS ===== */}
             <div className="lg:col-span-8 flex flex-col justify-between">
               {/* Header: Title "ABOUT ME" in pixel font with white outline */}
-              <div className="text-center lg:text-left mb-6">
+              <div data-aos="fade-down" data-aos-delay="150" className="text-center lg:text-left mb-6">
                 <h2 className="pixel-title text-4xl sm:text-6xl tracking-wide">
                   ABOUT ME
                 </h2>
@@ -96,7 +110,7 @@ export function AboutStage() {
               {/* Two sub-columns (Pengalaman & Tentang Saya / Skill) */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
                 {/* Column 1: Pengalaman ▾ */}
-                <div className="space-y-4">
+                <div data-aos="fade-up" data-aos-delay="250" className="space-y-4">
                   <div className="flex items-center gap-1.5 font-mono text-xs font-bold uppercase text-navy border-b border-ink/15 pb-1">
                     <span>PENGALAMAN</span>
                     <span className="text-[10px] text-pixel">▼</span>
@@ -137,7 +151,7 @@ export function AboutStage() {
                 </div>
 
                 {/* Column 2: Tentang Saya ▾ & Keahlian Utama ▾ */}
-                <div className="space-y-5">
+                <div data-aos="fade-up" data-aos-delay="350" className="space-y-5">
                   {/* Tentang Saya ▾ */}
                   <div>
                     <div className="flex items-center gap-1.5 font-mono text-xs font-bold uppercase text-navy border-b border-ink/15 pb-1 mb-2">
@@ -186,7 +200,11 @@ export function AboutStage() {
               </div>
 
               {/* Bottom Row: 4 Delicate Outline Pills + Taped QR Code */}
-              <div className="mt-8 pt-4 border-t border-ink/15 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="400"
+                className="mt-8 pt-4 border-t border-ink/15 flex flex-col sm:flex-row items-center justify-between gap-4"
+              >
                 {/* 3 Delicate Outline Pills in Center Bottom */}
                 <div className="flex flex-wrap items-center justify-center gap-2">
                   <span className="rounded-full border border-pixel/60 bg-pixel/5 px-3 py-1 font-mono text-[10px] font-bold text-pixel uppercase">
